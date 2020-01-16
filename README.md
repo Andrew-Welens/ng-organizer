@@ -1,3 +1,5 @@
+# Use: RxJS, Firebase, Moment.JS  
+
 # Organizer
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0.
