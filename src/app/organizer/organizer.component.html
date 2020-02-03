@@ -1,35 +1,38 @@
 <section>
-  <header>
-    Органайзер: <strong>{{dateService.date | async | moment:'DD.MM.YYYY'}}</strong>
-    <hr/>
-  </header>
+    <header>
+        Органайзер: <strong>{{dateService.date | async | moment:'DD.MM.YYYY'}}</strong>
+        <hr/>
+    </header>
 
-  <main>
-    <ul *ngIf="tasks.length; else noTasks">
-      <li class="task" *ngFor="let task of tasks; let i = index">
+    <main>
+        <ul *ngIf="tasks.length; else noTasks">
+            <li class="task" *ngFor="let task of tasks; let i = index">
         <span>
           <strong>{{i + 1}}</strong>
-          {{task.title}}
+            {{task.title}}
         </span>
-        <button class="btn btn-primary" (click)="remove(task)">Удалить</button>
-      </li>
-    </ul>
-    <ng-template #noTasks>
-      <p class="text-center">Нет задач</p>
-    </ng-template>
-  </main>
+                <button mat-button class="btn btn-primary" (click)="remove(task)">Удалить</button>
+            </li>
+        </ul>
+        <ng-template #noTasks>
+            <p class="text-center">Нет задач</p>
+        </ng-template>
+    </main>
 
-  <footer>
-    <form (ngSubmit)="submit()" [formGroup]="form">
-      <input type="text" formControlName="title">
+    <footer>
+        <form (ngSubmit)="submit()" [formGroup]="form">
+            <label>
+                <input type="text" formControlName="title">
+            </label>
 
-      <button
-        type="submit"
-        class="btn btn-primary btn-block"
-        [disabled]="form.invalid"
-      >
-        Добавить
-      </button>
-    </form>
-  </footer>
+            <button
+                    mat-button
+                    type="submit"
+                    class="btn btn-primary btn-block"
+                    [disabled]="form.invalid"
+            >
+                Добавить
+            </button>
+        </form>
+    </footer>
 </section>
